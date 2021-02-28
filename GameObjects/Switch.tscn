@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Switch.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 0.784314 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 0, 1, 0, 0.784314 )
+
+[sub_resource type="SphereShape" id=3]
+
+[node name="Switch" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="OffMesh" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+material = SubResource( 1 )
+
+[node name="OnMesh" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
+material = SubResource( 2 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

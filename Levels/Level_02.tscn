@@ -1,0 +1,272 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://GameObjects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameObjects/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameObjects/Perspectives.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameObjects/CameraPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/Cube_1x1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=7]
+[ext_resource path="res://GameObjects/EpiphanyOrb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/PlatformLinearMove.gd" type="Script" id=9]
+[ext_resource path="res://GameObjects/DirectionalLight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Materials/Default_Shadow.tres" type="Material" id=11]
+[ext_resource path="res://GameObjects/Gate.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=13]
+[ext_resource path="res://GameObjects/DefaultEnvironment.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Level_03.tscn" type="PackedScene" id=15]
+
+[node name="Level_02" type="Spatial"]
+script = ExtResource( 13 )
+perspectives_node_path = NodePath("Perspectives")
+player_path = NodePath("Player")
+player_respawn_height = -10.0
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="Perspectives" parent="." instance=ExtResource( 3 )]
+
+[node name="CameraPoint" parent="Perspectives" instance=ExtResource( 4 )]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707106, 0.707107, -0.707107, -0.5, 0.5, 10, 15, 10 )
+target_node_path = NodePath("../../../Level_02/Player")
+
+[node name="Geometry" type="Node" parent="."]
+
+[node name="Cube" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Cube4" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -32 )
+
+[node name="Cube5" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 2.5, 0, -42 )
+
+[node name="Cube7" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 12.5, 1.5, -42 )
+
+[node name="Cube8" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 24.5, 1.5, -42 )
+
+[node name="Cube19" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 19.5, 1.5, -73 )
+
+[node name="Cube26" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 38.5, 16.5, -76 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 10, 0 )
+speed = 0.6
+
+[node name="Label3D3" type="Spatial" parent="Geometry/Cube26"]
+transform = Transform( 0.0707107, -0.0707107, -3.09086e-09, 0, -1.09278e-08, 0.25, -0.0707107, -0.0707107, -3.09086e-09, 0.22, 0.55, 0.23 )
+script = ExtResource( 7 )
+text = "Hidden Truths
+Can Lie In Plain
+Site"
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Cube27" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 38.5, 26.5, -86 )
+
+[node name="Cube28" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 38.5, 28, -96 )
+
+[node name="Cube30" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 38.5, 28, -106 )
+
+[node name="Cube29" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 38.5, 26.5, -116 )
+
+[node name="Cube18" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 4, 0, 0, 0, 10, 38.5, 1.5, -42 )
+
+[node name="Cube23" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 10, 38.5, 0.5, -32 )
+
+[node name="Cube24" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 31.5, 4, -29 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 3.5, 0 )
+
+[node name="Cube25" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 31.5, 7.5, -34 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 0, 1 )
+
+[node name="Cube12" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 5, 0, 0, 0, 4, 31.5, 6, -39 )
+
+[node name="Cube15" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 31.5, 1.5, -39 )
+
+[node name="Cube16" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 31.5, 1.5, -45 )
+
+[node name="Cube17" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 2, 31.5, 1.5, -42 )
+material/0 = ExtResource( 11 )
+
+[node name="Cube13" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 5, 0, 0, 0, 4, 31.5, 6, -45 )
+
+[node name="Cube14" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 2, 31.5, 8, -42 )
+
+[node name="Cube9" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 10, 18.5, 1, -42 )
+
+[node name="Cube3" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -2.18557e-07, 1, 0, -5, -4.37114e-08, 0, 0, 0, 10, -5.5, 2, 0 )
+
+[node name="Platform" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -16 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 0, 7 )
+
+[node name="Platform2" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 23, 3, -53 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 0, 4 )
+speed = 1.0
+
+[node name="Platform4" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 31.5, 8, -61 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 0, 12 )
+speed = 0.6
+
+[node name="Platform3" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 19, 3, -62 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 0, 4 )
+speed = 1.0
+phase_mult = 1.0
+
+[node name="Cube2" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 6.5, 0.5, -42 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 2, 0 )
+speed = 2.0
+
+[node name="Cube6" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.5, 2.5, -46 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 1, 0 )
+speed = 2.5
+
+[node name="Cube10" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 19.5, 3.5, -73 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 1, 0 )
+speed = 4.0
+
+[node name="Cube20" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.5, 2.5, -42 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 1, 0 )
+speed = 2.5
+
+[node name="Cube21" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 30.5, 4, -42 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 1, 0 )
+speed = 0.3
+
+[node name="Cube22" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 30.5, 7, -42 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 1, 0 )
+speed = 0.3
+
+[node name="Cube11" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.5, 2.5, -38 )
+script = ExtResource( 9 )
+max_offset = Vector3( 0, 1, 0 )
+speed = 2.5
+
+[node name="TutorialText" type="Node" parent="."]
+
+[node name="Label3D" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2, 0.65, 0 )
+script = ExtResource( 7 )
+text = "Level 2
+Hidden Truths"
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D2" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1.06581e-14, 1, 0, 1, 1.06581e-14, -1, 4.65882e-22, -4.37114e-08, -4.9, 2.65, 8.30516e-08 )
+script = ExtResource( 7 )
+text = "You live outside of
+time, use the F key
+to progress."
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.707107, -0.707107, -1.6292e-07, 1.15202e-07, -1.15202e-07, 1, -0.707107, -0.707107, -1.50729e-14, 0, 10, 0 )
+projection = 1
+current = true
+fov = 71.9
+size = 14.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.6, 2.38419e-07 )
+
+[node name="DirectionalLight" parent="." instance=ExtResource( 10 )]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 14 )]
+
+[node name="EpiphanyOrb" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -44 )
+
+[node name="CameraPoint" parent="EpiphanyOrb" instance=ExtResource( 4 )]
+transform = Transform( -0.955995, 0.177193, -0.233829, 0, 0.79701, 0.603966, 0.293383, 0.577388, -0.761938, -1.42968, 7.40068, -6.76056 )
+
+[node name="EpiphanyOrb2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 5.3, -73 )
+focus_pivot_on_player = true
+
+[node name="CameraPoint" parent="EpiphanyOrb2" instance=ExtResource( 4 )]
+transform = Transform( -0.00238089, 0.644847, -0.764308, 0, 0.76431, 0.644849, 0.999997, 0.00153531, -0.00181974, -5.86704, 4.49002, 0.0520096 )
+
+[node name="EpiphanyOrb3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 8.6, -45.2 )
+
+[node name="CameraPoint" parent="EpiphanyOrb3" instance=ExtResource( 4 )]
+transform = Transform( -0.655364, 0.489075, -0.575589, 0, 0.762054, 0.647513, 0.755313, 0.424357, -0.499423, -5.24012, 5.29787, -9.93274 )
+
+[node name="Gate" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5, 28.5, -116 )
+active = true
+next_level = ExtResource( 15 )

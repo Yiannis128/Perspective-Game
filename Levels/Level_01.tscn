@@ -1,0 +1,373 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://GameObjects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameObjects/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameObjects/Perspectives.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameObjects/CameraPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/Cube_1x1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=7]
+[ext_resource path="res://Materials/Default_Shadow.tres" type="Material" id=8]
+[ext_resource path="res://Models/Stairs.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GameObjects/DirectionalLight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GameObjects/Gate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GameObjects/EpiphanyOrb.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=13]
+[ext_resource path="res://GameObjects/DefaultEnvironment.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Level_02.tscn" type="PackedScene" id=15]
+
+[node name="Level_01" type="Spatial"]
+script = ExtResource( 13 )
+perspectives_node_path = NodePath("Perspectives")
+player_path = NodePath("Player")
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="Perspectives" parent="." instance=ExtResource( 3 )]
+
+[node name="CameraPoint" parent="Perspectives" instance=ExtResource( 4 )]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707106, 0.707107, -0.707107, -0.5, 0.5, 10, 15, 10 )
+target_node_path = NodePath("../../Player")
+
+[node name="Geometry" type="Node" parent="."]
+
+[node name="Cube" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Cube2" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -10 )
+
+[node name="Cube3" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -20 )
+
+[node name="Cube4" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -30 )
+
+[node name="Cube5" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -40 )
+
+[node name="Cube6" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -50 )
+
+[node name="Cube7" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -60 )
+
+[node name="Cube8" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -72 )
+
+[node name="Cube19" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -84 )
+
+[node name="Cube29" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -94 )
+
+[node name="Cube32" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -104 )
+
+[node name="Cube28" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 4, -84 )
+
+[node name="Cube31" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 10, 4, -84 )
+
+[node name="Cube30" parent="Geometry" instance=ExtResource( 6 )]
+
+[node name="Cube55" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 10, 4, -94 )
+
+[node name="Cube56" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 20, 4, -94 )
+
+[node name="Cube57" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 20, 4, -104 )
+
+[node name="Cube9" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 1.5, -66 )
+
+[node name="Cube17" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 3.5, -66 )
+
+[node name="Cube20" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 1.5, -78 )
+
+[node name="Cube21" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 3.5, -78 )
+
+[node name="Cube37" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 3.5, -78 )
+
+[node name="Cube38" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 12, 4, 1.5, -93 )
+
+[node name="Cube39" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 12, 4, 3.5, -93 )
+
+[node name="Cube41" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 0, 0, 4, 0, 0, 0, 10, 4.75, 2.5, -94 )
+
+[node name="Cube22" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 1.5, -78 )
+
+[node name="Cube23" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 3.5, -78 )
+
+[node name="Cube24" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.5, -78 )
+
+[node name="Cube25" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.5, -78 )
+
+[node name="Cube26" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 1.5, -78 )
+
+[node name="Cube27" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 3.5, -78 )
+
+[node name="Cube10" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 1.5, -66 )
+
+[node name="Cube16" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 3.5, -66 )
+
+[node name="Cube11" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 0.5, 0, 0, 0, 2, 2, 4.25, -66 )
+
+[node name="Cube12" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.5, -66 )
+
+[node name="Cube14" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.5, -66 )
+
+[node name="Cube13" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 1.5, -66 )
+
+[node name="Cube15" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 3.5, -66 )
+
+[node name="Cube18" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, -66 )
+material_override = ExtResource( 8 )
+
+[node name="Cube43" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, -78 )
+material_override = ExtResource( 8 )
+
+[node name="Cube46" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 3, -90 )
+
+[node name="Cube47" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 2, -90 )
+
+[node name="Cube48" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 2, -92 )
+
+[node name="Cube49" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 1, -90 )
+
+[node name="Cube50" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 1, -92 )
+
+[node name="Cube51" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 1, -94 )
+
+[node name="Stairs5" parent="Geometry" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 4, -90 )
+
+[node name="Stairs6" parent="Geometry" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 3, -92 )
+
+[node name="Stairs7" parent="Geometry" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 2, -94 )
+
+[node name="Stairs8" parent="Geometry" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 2, 1, -96 )
+
+[node name="TutorialText" type="Node" parent="."]
+
+[node name="Label3D" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.5, 0.65, -3 )
+script = ExtResource( 7 )
+text = "Level 1 - Tutorial
+Controls:
+W/S - Forward/Backward
+A/D - Turn Clockwise/Anticlockwise"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D4" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -3.8, 0.65, -2.3 )
+script = ExtResource( 7 )
+text = "Welcome to perspective
+Made by Yiannis Charalambous"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D2" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2, 0.65, -26 )
+script = ExtResource( 7 )
+text = "In this game, you use
+multiple perspectives
+to solve puzzles. Different
+views have different strengths."
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D7" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 3, 0.65, -49 )
+script = ExtResource( 7 )
+text = "The blue orbs cause an
+epiphany. A new perspective
+is revealed."
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D3" type="Spatial" parent="TutorialText"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.7, -64 )
+script = ExtResource( 7 )
+text = "Use E/Q to
+switch perspective"
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D5" type="Spatial" parent="TutorialText"]
+transform = Transform( 4.33126e-07, 0, -1, 0, 1, 0, 1, 0, 4.33126e-07, -5.1, -4.24683e-07, -71.1 )
+script = ExtResource( 7 )
+text = "Strength lies in differing views"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D6" type="Spatial" parent="TutorialText"]
+transform = Transform( 0.707106, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707106, -3.09086e-08, 21.9, 4.7, -93.6858 )
+script = ExtResource( 7 )
+text = "To complete the level,
+step into the gate.
+Have fun!"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D8" type="Spatial" parent="TutorialText"]
+transform = Transform( -0.707106, 0.683013, -0.183013, 0, 0.258819, 0.965926, 0.707107, 0.683012, -0.183012, 4.9, 5.7, -85.6858 )
+script = ExtResource( 7 )
+text = "Perspective #1
+is always the
+default perspective"
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.707107, -0.707107, -1.6292e-07, 1.15202e-07, -1.15202e-07, 1, -0.707107, -0.707107, -1.50729e-14, 0, 10, 0 )
+projection = 1
+current = true
+fov = 71.9
+size = 14.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.6, -1 )
+
+[node name="DirectionalLight" parent="." instance=ExtResource( 10 )]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 14 )]
+
+[node name="Gate" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4.5, -104 )
+active = true
+next_level = ExtResource( 15 )
+
+[node name="EpiphanyOrb" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -60 )
+
+[node name="CameraPoint2" parent="EpiphanyOrb" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4.6, 5 )
+
+[node name="EpiphanyOrb2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, -68 )
+
+[node name="CameraPoint3" parent="EpiphanyOrb2" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, -0.173648, 0.984807, 0, 0.984808, 0.173648, -1, 2.82909e-08, -1.60445e-07, 8, 3.6, -2 )
+
+[node name="EpiphanyOrb3" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.4, -68 )
+focus_pivot_on_player = true
+
+[node name="CameraPoint4" parent="EpiphanyOrb3" instance=ExtResource( 4 )]
+transform = Transform( -0.707106, 0.183013, -0.683012, 0, 0.965926, 0.258819, 0.707106, 0.183013, -0.683012, -10, 4, -10 )

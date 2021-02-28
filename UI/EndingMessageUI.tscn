@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/TextReveal.gd" type="Script" id=1]
+
+[node name="EndingMessageUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 422.0
+text = "Congratulations! The final gate you have crossed has transported the robot you were guiding back to its home planet.
+
+It would have been impossible for you to do so without the ability to look at the world from different views.
+
+Strength lies in differences.
+
+~ THE END ~
+
+
+
+
+Ending Note: I always wanted to make a puzzle game with this style, so please excuse
+me if the game doesn't entirely fit into the theme of the game jam.
+
+I was also very busy this week, so a lot of features were cut. Audio, proper platforms,
+a menu system (although the game doesn't really need one).
+
+I tried showing the theme off in this game as much as possible.
+Hopefully I did a good job, and **hopefully** the game was fun.
+
+Please be as honest as possible in the review, so I can do better in the next
+game jam.
+
+Regards,
+Yiannis Charalambous"
+align = 1
+script = ExtResource( 1 )
+fill_speed = 0.2

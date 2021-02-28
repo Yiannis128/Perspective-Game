@@ -1,0 +1,1303 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://GameObjects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameObjects/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameObjects/Perspectives.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameObjects/CameraPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/Plane.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=7]
+[ext_resource path="res://Materials/Paving_5.tres" type="Material" id=8]
+[ext_resource path="res://Materials/StoneWall_9.tres" type="Material" id=9]
+[ext_resource path="res://GameObjects/DirectionalLight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Materials/Paving_3.tres" type="Material" id=11]
+[ext_resource path="res://Scripts/PlatformLinearMove.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=13]
+[ext_resource path="res://GameObjects/DefaultEnvironment.tscn" type="PackedScene" id=14]
+[ext_resource path="res://GameObjects/Switch.tscn" type="PackedScene" id=15]
+[ext_resource path="res://GameObjects/EpiphanyOrb.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Models/Stairs.tscn" type="PackedScene" id=17]
+[ext_resource path="res://GameObjects/Gate.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Levels/Level_04.tscn" type="PackedScene" id=19]
+
+[node name="Level_02" type="Spatial"]
+script = ExtResource( 13 )
+perspectives_node_path = NodePath("../Level_02/Perspectives")
+player_path = NodePath("Player")
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="Perspectives" parent="." instance=ExtResource( 3 )]
+
+[node name="CameraPoint" parent="Perspectives" instance=ExtResource( 4 )]
+transform = Transform( 0.707107, -0.353554, 0.612372, 0, 0.866025, 0.500001, -0.707107, -0.353554, 0.612372, 16.7361, 18.5, 16.7361 )
+target_node_path = NodePath("../../../Level_02/Player")
+
+[node name="Geometry" type="Node" parent="."]
+
+[node name="Plane" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane2" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane3" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane4" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane5" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane6" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane10" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 6, -4 )
+material/0 = ExtResource( 8 )
+script = ExtResource( 12 )
+active = false
+max_offset = Vector3( 0, 2, 0 )
+phase_mult = 1.5
+
+[node name="Plane22" parent="Geometry/Plane10" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane24" parent="Geometry/Plane10" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -2, -2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane23" parent="Geometry/Plane10" instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06581e-14, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, -1.06581e-14, 1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane7" parent="Geometry/Plane10" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -6, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane256" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, 12 )
+material/0 = ExtResource( 8 )
+script = ExtResource( 12 )
+active = false
+max_offset = Vector3( 0, 0, 8 )
+speed = 1.0
+phase_mult = 0.5
+
+[node name="Plane22" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane24" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -2, -2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane23" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06581e-14, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, -1.06581e-14, 1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane25" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane257" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane26" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane27" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane28" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06581e-14, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, -1.06581e-14, 1, 1.91069e-15, 0, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane29" parent="Geometry/Plane256" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -2, -2, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane259" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, 28 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane22" parent="Geometry/Plane259" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane24" parent="Geometry/Plane259" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -2, -2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane23" parent="Geometry/Plane259" instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06581e-14, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, -1.06581e-14, 1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane25" parent="Geometry/Plane259" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane258" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 8, 24 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane22" parent="Geometry/Plane258" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane24" parent="Geometry/Plane258" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -2, -2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane23" parent="Geometry/Plane258" instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06581e-14, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, -1.06581e-14, 1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane25" parent="Geometry/Plane258" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane260" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 8, 24 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane22" parent="Geometry/Plane260" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane24" parent="Geometry/Plane260" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -2, -2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane23" parent="Geometry/Plane260" instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06581e-14, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, -1.06581e-14, 1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane25" parent="Geometry/Plane260" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane12" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 0 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane130" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, -4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane131" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, 0 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane13" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane8" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -4, 2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane9" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -4, 2, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane14" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane24" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane25" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane26" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -8 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane38" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane39" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -8 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane40" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, -4 )
+material/0 = ExtResource( 8 )
+script = ExtResource( 12 )
+active = false
+max_offset = Vector3( 0, 2, 0 )
+speed = 1.0
+phase_mult = 0.5
+
+[node name="Plane46" parent="Geometry/Plane40" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane41" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane42" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane43" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 5, -8 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane120" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -20 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane121" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -20 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane122" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, -20 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane123" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -24 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane124" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -24 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane125" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, -24 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane27" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -4, 2, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane97" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, -4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane98" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, 0 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane99" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, 4 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane100" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane101" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane102" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane103" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, -8 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane104" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane105" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, -20 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane106" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, -16 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane107" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, -12 )
+material/0 = ExtResource( 8 )
+
+[node name="Plane108" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane112" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -30, 2, -22 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane109" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane110" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -28, 2, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane132" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2, -24 )
+material/0 = ExtResource( 8 )
+script = ExtResource( 12 )
+active = false
+max_offset = Vector3( 0, 2, 0 )
+speed = 1.0
+phase_mult = 0.5
+
+[node name="Plane112" parent="Geometry/Plane132" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane31" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -6, 2, -10 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane32" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -10, 2, -10 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane36" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -10, 6, -6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane44" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -14, 3, -10 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane137" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, -4.02341e-21, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -12, 3, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane45" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -16, 3, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane47" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -16, 2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane111" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, -14, 2, -2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane133" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.94707e-07, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 1.94707e-07, -8.51092e-15, -12, 2, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane134" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 2.38419e-07, -1.04216e-14, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -14, 3, -6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane46" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -14, -1, -10 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane135" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -16, -1, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane136" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 2.38419e-07, -1.04216e-14, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -14, -1, -6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane126" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -12, 6, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane127" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -12, 6, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane48" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -16, 2, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane28" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane58" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -20 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane59" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -20 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane60" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -4, 2, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane68" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, 2, -18 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane69" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, 2, -18 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane118" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, 2, -18 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane70" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -16, 2, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane119" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, -3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, 4.37114e-08, -16, 2, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane61" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane62" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -24 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane63" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -24 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane64" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -4, 2, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane65" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane66" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 2, -2, -26 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane67" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, -2, -2, -26 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane29" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane30" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane34" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane35" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane33" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane53" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane54" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane55" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane56" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -16 )
+material/0 = ExtResource( 11 )
+script = ExtResource( 12 )
+active = false
+max_offset = Vector3( 0, 2, 0 )
+speed = 1.0
+phase_mult = 1.5
+
+[node name="Plane132" parent="Geometry/Plane56" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 0, -2, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane133" parent="Geometry/Plane56" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 4.02341e-21, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 2, -2, 9.53674e-07 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane134" parent="Geometry/Plane56" instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -2, -2, 1.90735e-06 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane71" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane72" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane73" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane74" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane75" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane76" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -12 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane77" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane78" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -16 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane79" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane80" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -8 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane81" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane82" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane83" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -8 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane84" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -8 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane85" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane86" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane87" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane88" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane89" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane90" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane91" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -20 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane92" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -24 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane93" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -20 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane94" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -20 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane95" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -24 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane96" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -24 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane57" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane20" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane21" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
+material/0 = ExtResource( 11 )
+
+[node name="Plane37" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -8, 6, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane129" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -8, 6, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane23" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane15" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane16" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -2, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane11" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, 2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane17" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane18" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane19" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane49" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, 2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane128" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, 6, 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane50" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane51" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, 2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane52" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane113" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane114" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane115" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane116" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane138" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane139" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane140" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane141" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane142" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane143" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane22" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane144" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -6, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane145" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane146" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane147" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane148" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane149" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane150" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane151" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane152" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane153" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -6, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane154" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane155" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane156" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane157" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane158" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane159" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane160" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane161" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -10, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane162" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane163" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane164" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane165" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane166" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane167" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane168" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane169" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane170" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -10, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane171" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane172" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane173" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane174" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane175" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane176" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane177" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane178" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -14, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane179" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane180" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane181" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane182" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane183" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane184" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane185" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane186" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane187" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -14, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane188" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane189" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane190" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane191" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane192" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane193" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane194" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane195" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -18, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane196" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane197" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane198" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane199" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane200" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane201" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane202" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane203" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane204" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -18, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane205" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane206" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane207" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane208" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane209" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane210" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane211" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane212" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -22, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane213" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane214" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane215" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane216" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane217" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane218" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane219" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane220" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane221" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -22, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane222" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane223" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane224" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane225" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane226" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane227" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane228" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane229" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -26, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane230" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane231" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane232" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane233" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane234" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane235" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane236" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane237" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane238" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -26, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane239" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, -8 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane240" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, -20 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane241" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, -24 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane242" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, -12 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane243" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, -16 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane244" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, -4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane245" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, 0 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane246" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 4, -30, 4 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane247" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 2, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane248" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -2, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane249" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -6, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane250" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -10, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane251" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -14, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane252" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -18, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane253" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -22, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane254" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -26, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane255" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, -30, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Plane117" parent="Geometry" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, -30, 2, 6 )
+material/0 = ExtResource( 9 )
+
+[node name="Stairs" parent="Geometry" instance=ExtResource( 17 )]
+transform = Transform( -1.74846e-07, 0, -4, 0, 1, 0, 4, 0, -1.74846e-07, -10, 4.5, -8 )
+material/0 = ExtResource( 8 )
+
+[node name="TutorialText" type="Node" parent="."]
+
+[node name="Label3D" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2, 0.15, 0 )
+script = ExtResource( 7 )
+text = "Level 3 - Switching
+Perspectives"
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.4, 0, 0.733333, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Label3D2" type="Spatial" parent="TutorialText"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -25, 0.15, -15 )
+script = ExtResource( 7 )
+text = "Touch a switch to activate an
+object. You can then move that
+object using F"
+text_size = 1.0
+font = null
+align = 2
+billboard = false
+color = Color( 0.4, 0, 0.733333, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.707107, -0.707107, -1.6292e-07, 1.15202e-07, -1.15202e-07, 1, -0.707107, -0.707107, -1.50729e-14, 0, 10, 0 )
+projection = 1
+current = true
+fov = 71.9
+size = 14.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.6, 2.38419e-07 )
+
+[node name="DirectionalLight" parent="." instance=ExtResource( 10 )]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 14 )]
+
+[node name="Switch" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, 4 )
+target_path = NodePath("../Geometry/Plane56")
+
+[node name="Switch2" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -24 )
+target_path = NodePath("../Geometry/Plane40")
+
+[node name="EpiphanyOrb" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 4, -24 )
+
+[node name="CameraPoint" parent="EpiphanyOrb" instance=ExtResource( 4 )]
+transform = Transform( 0.0103869, 0.648695, -0.760978, 0, 0.761019, 0.64873, 0.999946, -0.00673828, 0.00790461, -10.8822, 4.59305, 22.3248 )
+
+[node name="Switch3" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 5, -8 )
+target_path = NodePath("../Geometry/Plane10")
+
+[node name="Switch4" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, 0 )
+target_path = NodePath("../Geometry/Plane256")
+
+[node name="Gate" parent="." instance=ExtResource( 18 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -18, 8, 24 )
+next_level = ExtResource( 19 )
+
+[node name="Switch5" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, 28 )
+target_path = NodePath("../Gate")
+
+[node name="Switch6" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -24 )
+target_path = NodePath("../Geometry/Plane132")
